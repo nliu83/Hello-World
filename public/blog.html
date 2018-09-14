@@ -1,0 +1,90 @@
+  <!DOCTYPE html>
+    <html>
+        <title>WORLD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> 
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.25.0/sweetalert2.all.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.25.0/sweetalert2.css">
+    
+     <!-- Icon Bar (Sidebar - hidden on small screens) -->
+     <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+       <!-- Avatar image in top left corner -->
+       <img id="navProfileImg" src="images/earth.jpg" class="profile-image img-circle">
+       <hr>
+     
+       <div class="btn-group dropdown">
+            <button id="dropbtn" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              THE WORLD
+            </button>
+            <div class="dropdown-menu">
+              <!-- Dropdown menu links -->
+                <a id="dropitem" class="dropdown-item" href="world.html">DISCOVER</a>
+                <a id="dropitem" class="dropdown-item" href="">CONNECT</a>
+                <a id="dropitem" class="dropdown-item" href="">HELP</a>
+            </div>
+          </div>
+       </a>
+            <div class="btn-group dropdown">
+              <button id="dropbtn" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                MY WORLD
+              </button>
+              <div style="width: 90%;" class="dropdown-menu">
+                <!-- Dropdown menu links -->
+                <a id="dropitem" class="dropdown-item" href="blog.html">MY FEED</a>
+                <a id="dropitem" class="dropdown-item" href="">MY PROFILE</a>
+                <a id="dropitem" class="dropdown-item" href=""></a>
+              </div>
+            </div>
+            </a>
+            <a href="#" class="card-link"><button id="notifsBtn" type="button" class="btn btn-primary">
+                NOTIFICATIONS <span class="badge badge-light">3</span>
+              </button></a>
+              <button type="button" class="btn btn-danger">Sign Out</button>
+     </nav>
+    <div class="w3-padding-large" id="main">
+     <!-- Page Content -->
+     <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">Hello, World!</h1>
+              <p style="color: #131313;" class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            
+            <div id="clock">
+                    <span id="currentTime"> </span>
+                    <script>
+                          function displayTime () {
+                          var currentTime = moment().format('MMM Do YYYY, h:mm:ss a');
+                          $("#currentTime").text(currentTime);
+      
+                          }
+                            setInterval(displayTime, 1000);
+                    </script>
+                  </div>
+                 </div>
+          </div>
+          
+     <div class="container py-5">
+        <div class="row">
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-default" href="cms.html">New Post</a>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-default" href="author-manager.html">Manage Authors</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 blog-container">
+      </div>
+    </div> 
+
+      </body>
+    </html>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>

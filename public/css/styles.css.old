@@ -1,0 +1,166 @@
+button.submit {
+  float: right;
+}
+
+form#cms {
+  margin-top: 50px;
+}
+
+#cms textarea {
+  resize: none;
+}
+
+.card-header button.delete,
+button.edit {
+  float: right;
+  margin: 5px;
+}
+
+.author-container {
+  margin-top: 50px;
+}
+
+.author-list {
+  margin-top: 25px;
+}
+
+.blog-container {
+  margin-top: 30px;
+}
+
+.blog {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+#author-name {
+  width: 100%;
+  height: 35px;
+  margin-top: 5px;
+}
+
+.top-30 {
+  margin-top: 30px;
+}
+
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.display-4, .lead {
+  text-align: center;
+}
+
+.btnSignIn, .btnSignUp {
+  /* need to center the buttons */
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+
+.profileContainer {
+  margin-top: 20px;
+}
+
+ #html {
+  padding: 10px;
+}
+
+#loginImg {
+  background: no-repeat url('../images/login.jpg');
+  height: 100%;
+  width: 100%;
+}
+
+/* The Modal (background) */
+.modal {
+ border-radius: 20px 20px 20px 20px;
+ display: none; /* Hidden by default */
+ position: fixed; /* Stay in place */
+ z-index: 1; /* Sit on top */
+ left: 0;
+ top: 0;
+ background-image: url();
+ padding-top: 60px;
+}
+/* Modal Content/Box */
+.modal-content {
+ margin: auto;
+ text-align: center;
+ line-height: 25px;
+ padding: 5px;
+}
+body, html, form, p, h1,h2,h3,h4,h5,h6 {
+ font-family: "Montserrat", sans-serif; 
+ letter-spacing: 3px;
+}
+p {
+ color: white;
+}
+.w3-row-padding img {
+ margin-bottom: 12px;
+}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {
+ width: 180px;background: #333;
+}
+
+#navProfileImg {
+ margin-top: 10px;
+ border-radius: 100px 100px 100px 100px;
+ height: 125px;
+ width: 125px;
+}
+
+#dropbtn {
+
+ margin-bottom: 20px;
+ 
+}
+
+#dropitem {
+ color: white;
+ padding: 2%;
+ height: 30px;
+ background: #222;
+}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {
+ margin-left: 170px;
+}
+ul {
+ color: #131313;
+ padding: 1%;
+ margin-left: 10px;
+ margin-right: 10px;
+ border-radius: 20px 20px 20px 20px;
+}
+#map {
+ height: 500px;  /* The height is 400 pixels */
+ width: 100%;  /* The width is the width of the web page */
+}
+#profileCard {
+ color: white;
+ float: right;
+ background: #333;
+ border: 5px solid silver;
+ border-radius: 20px 20px 20px 20px;
+ height: 500px;
+}
+
+#notifsBtn {
+ margin-bottom: 20px;
+}
+
+#jumbotron-title {
+ background-image: url('');
+ color: #e9e9e9;
+ font-size: 58px;
+ text-align: center;
+ font-family: "Montserrat", sans-serif;
+ letter-spacing: 7px;
+ line-height: 1.5px;
+}

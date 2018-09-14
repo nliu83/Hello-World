@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Friendify</title>
+        <base href="/">
+        <!-- link to bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- link to style.css -->
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <!-- link to Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Friendify</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                    </li>
+                </div>
+        </nav>
+
+        <!-- Insert Jumbotron -->
+        <div class = "container">
+            <div class="jumbotron">
+                <h1 class="display-4">Friendify</h1>
+                <p class="lead">Find international friends who can be pen-pals who can share life experiences/stories how it is like on different parts of the world. </p>
+                <hr class="my-4">
+                <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+                <a class="btn btn-primary btn-lg btnSignIn" href="signIn.html" role="button">Sign in</a>
+                <br>
+                <a class="btn btn-primary btn-lg btnSignUp" href="signUp.html" role="button">Sign up to find new friends</a>
+            </div>
+        </div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>

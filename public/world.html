@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+    <title>WORLD</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> 
+    <!-- <link rel="stylesheet" type="text/css" href="../public/css/styles.css"> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.25.0/sweetalert2.all.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.25.0/sweetalert2.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+ <!-- Icon Bar (Sidebar - hidden on small screens) -->
+ <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+   <!-- Avatar image in top left corner -->
+   <img id="navProfileImg" src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&h=350" class="profile-image img-circle">
+   <hr>
+ 
+   <div class="btn-group dropdown">
+        <button id="dropbtn" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          THE WORLD
+        </button>
+        <div class="dropdown-menu">
+          <!-- Dropdown menu links -->
+            <a id="dropitem" class="dropdown-item" href="world.html">DISCOVER</a>
+            <a id="dropitem" class="dropdown-item" href="connect.html">CONNECT</a>
+            <a id="dropitem" class="dropdown-item" href="">HELP</a>
+        </div>
+      </div>
+   </a>
+        <div class="btn-group dropdown">
+          <button id="dropbtn" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            MY WORLD
+          </button>
+          <div style="width: 90%;" class="dropdown-menu">
+            <!-- Dropdown menu links -->
+            <a id="dropitem" class="dropdown-item" href="blog.html">MY FEED</a>
+            <a id="dropitem" class="dropdown-item" href="/api/profile/?id=2">MY PROFILE</a>
+            <a id="dropitem" class="dropdown-item" href=""></a>
+          </div>
+        </div>
+        </a>
+        <a href="#" class="card-link"><button id="notifsBtn" type="button" class="btn btn-primary">
+                NOTIFICATIONS <span class="badge badge-light">3</span>
+              </button></a>
+              <button type="button" class="btn btn-danger">Sign Out</button>
+ </nav>
+<!-- Jumbotron --->
+<div class="w3-padding-large" id="main">
+ <!-- Page Content -->
+ <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Discover</h1>
+          <p style="color: #131313;" class="lead">...the world around you!</p>
+<!-- Clock -->
+<hr>
+<div id="location">
+    <p></p>
+</div>
+        <div id="clock" style="margin-top: 10px; float: right">
+          <br>
+                <span id="currentTime"> </span>
+                <script>
+                    	function displayTime () {
+	                    var currentTime = moment().format('MMM Do YYYY, h:mm:ss a');
+	                    $("#currentTime").text(currentTime);
+	                    }
+                        setInterval(displayTime, 1000);
+                </script>
+                 <!-- Buttons -->
+                 <br>
+              </div>
+             </div>
+      </div>
+
+<!--- Map --->
+<div class="container py-5">
+<div class="row">
+  <div class="col-12-lg"></div>
+  <div id="map"></div>
+</div>
+<!--- Map Script --->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdhLrK9XoNFP9Yyjxcdd34z3Yf5K_qxeI&callback=initMap">
+    </script>
+  <script>
+     // Get user Location
+     var div = document.getElementById("location");
+            window.onload = getMyLocation;
+            function getMyLocation(){
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(displayLocation,displayError);
+                }else{
+                    alert("Sorry, your browser does not support geolocation");
+                }
+            }
+
+            function displayLocation(position){
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                swal({
+                  type: 'success',
+                  title: 'Geo-Locate Successful!',
+                  text: 'Location Found!',
+                  footer: '<a href>Have fun Exploring!</a>'
+                })
+                div.innerHTML = "<h4>Current Location:</h4><strong> Latitude:</strong> "+latitude+"<br><strong> Longitude:</strong> "+longitude;
+                // showMap(position.coords);
+            }
+        
+            function displayError(error){
+                if(error.code==0){
+                    div.innerHTML="An unknown error occurred.";
+                }else if(error.code==1){
+                    div.innerHTML="You denied the request for Geolocation.";
+                }else if(error.code==2){
+                    div.innerHTML="Location information is unavailable.";
+                }else if(error.code==3){
+                    div.innerHTML="The request to get user location timed out.";
+                }
+            }
+    function initMap(){
+      // Map options
+      var options = {
+        zoom:8,
+        center:{lat:37.6688,lng:-122.0808},
+        scrollwheel: false
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Listen for click on map
+      google.maps.event.addListener(map, 'click', function(event){
+        // Add marker
+        addMarker({coords:event.latLng});
+      });
+
+      // $.ajax({
+      //   url: url,
+      //   data: data,
+      //   success: success,
+      //   dataType: 'json',
+      // },
+      //   .then(function(data_response) {
+      //   // Array of markers
+      //   console.log(data_response.responseText);
+        
+        // Array of markers
+        var markers = [
+        {
+          coords:{lat:37.6688,lng:-122.0808},
+          iconImage:'',
+          content:   '<div id="profileCard" class="card" style="width:100%; height:100%;>'+
+        '<img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">'+
+        '<div class="card-body">'+
+          '<h5 class="card-title">Davis Allen</h5>'+
+          '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>'+
+        '</div>'+
+        '<ul class="list-group list-group-flush">'+
+          '<li class="list-group-item">Occupation:</li>'+
+          '<li class="list-group-item">Age:</li>'+
+          '<li class="list-group-item">Location: Hayward, CA</li>'+
+        '</ul>'+
+        '<div class="card-body">'+
+        '</div>'+
+    '</div>'
+        },
+        {
+          coords:{lat:37.6941,lng:-122.0864},
+          iconImage:'',
+          content:   '<div id="profileCard" class="card" style="width:100%; height:100%;>'+
+        '<img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">'+
+        '<div class="card-body">'+
+          '<h5 class="card-title">Natalie Liu</h5>'+
+          '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>'+
+        '</div>'+
+        '<ul class="list-group list-group-flush">'+
+          '<li class="list-group-item">Occupation:</li>'+
+          '<li class="list-group-item">Age:</li>'+
+          '<li class="list-group-item">Location: Castro Valley, CA</li>'+
+        '</ul>'+
+        '<div class="card-body">'+
+        '</div>'+
+    '</div>'
+        },
+        {
+          coords:{lat:37.8716,lng:-122.2727},
+          iconImage:'',
+          content:   '<div id="profileCard" class="card" style="width:100%; height:100%;>'+
+        '<img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">'+
+        '<div class="card-body">'+
+          '<h5 class="card-title">New User</h5>'+
+          '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>'+
+        '</div>'+
+        '<ul class="list-group list-group-flush">'+
+          '<li class="list-group-item">Occupation:</li>'+
+          '<li class="list-group-item">Age:</li>'+
+          '<li class="list-group-item">Location: Berkeley, CA</li>'+
+        '</ul>'+
+        '<div class="card-body">'+
+        '</div>'+
+    '</div>'
+        },
+        {
+          coords:{lat:37.8044,lng:-122.2711},
+          iconImage: '',
+          content:   '<div id="profileCard" class="card" style="width:100%; height:100%;>'+
+        '<img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">'+
+        '<div class="card-body">'+
+          '<h5 class="card-title">Daniel</h5>'+
+          '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>'+
+        '</div>'+
+        '<ul class="list-group list-group-flush">'+
+          '<li class="list-group-item">Occupation:</li>'+
+          '<li class="list-group-item">Age:</li>'+
+          '<li class="list-group-item">Location: Oakland, CA</li>'+
+        '</ul>'+
+        '<div class="card-body">'+
+        '</div>'+
+    '</div>'
+        },
+        {
+          coords:{lat:37.9780,lng:-122.0311},
+          iconImage:'',
+          content:   '<div id="profileCard" class="card" style="width:100%; height:100%;>'+
+        '<img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">'+
+        '<div class="card-body">'+
+          '<h5 class="card-title">Baruch</h5>'+
+          '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>'+
+        '</div>'+
+        '<ul class="list-group list-group-flush">'+
+          '<li class="list-group-item">Occupation:</li>'+
+          '<li class="list-group-item">Age:</li>'+
+          '<li class="list-group-item">Location: Concord, CA</li>'+
+        '</ul>'+
+        '<div class="card-body">'+
+        '</div>'+
+    '</div>'
+        }
+      ];
+  
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+    }
+</script>
+</body>
+</html>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>

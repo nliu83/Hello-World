@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hello, World!</title>
+        <base href="/">
+        <!-- link to bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- link to style.css -->
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <!-- link to Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    </head>
+    <body style="background: url('../images/login.jpg')">
+						 
+																																								  
+					
+
+																   
+															  
+																																															
+														   
+						 
+																	 
+										 
+												
+																								   
+						 
+					  
+			  
+
+        <!-- Insert Jumbotron -->
+        <div style="margin-top: 150px; margin-right:150px; margin-left: 350px;"class= "container">
+            <div style="background: url('../images/light-grey-terrazzo.png');height: 475px; width:700px; border-radius: 50px 50px 50px 50px; border: 5px solid rgba(163, 162, 162, 0.863);"class="jumbotron">
+                <h1 class="display-4">Hello, World!</h1>
+                <p style="color:#131313;"class="lead">Explore the World around you and make friends near and far whom you share common interests & hobbies!</p>
+                <hr class="my-4">
+                <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+                <a style="color: white"class="btn btn-primary btn-lg btnSignIn"  onclick="document.getElementById('id01').style.display='block'"role="button">Sign in</a>
+                <br>
+                <a class="btn btn-primary btn-lg btnSignUp" href="signUp.html" role="button">Sign up to Explore!</a>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    
+            <!-- Modal Content -->
+            <form class="modal-content animate" id="login" action="world.html">
+              <div class="container">
+                <div class="row">
+                  <label for="uname">
+                    <b>Username/E-Mail:</b>
+                  </label>
+                  <input type="text" placeholder="" name="uname" id="ln-email" required>
+                </div>
+    
+                <div class="row">
+                  <label for="psw">
+                    <b>Password:</b>
+                  </label>
+                  <input type="password" placeholder="" name="psw" id="ln-password" required>
+                </div>
+    
+                <div class="row">
+                  
+                  <label>
+                    <input type="checkbox" checked="checked" name="remember">
+                    <b>Remember Me</b>
+                  </label>
+    
+                  <div class="row" id="btnrow">
+                    <button class="btn-success" id="loginbtn" type="submit">Login</button>
+                    <button class="btn-secondary" type="button" onclick="document.getElementById('id01').style.display='none'" id="cancelbtn">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+    </body>
+</html>
